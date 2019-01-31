@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Markdown]]></title>
+    <title><![CDATA[Markdown基本语法]]></title>
     <url>%2F2019%2F01%2F30%2Fmarkdown%2F</url>
-    <content type="text"><![CDATA[一级标题二级标题三级标题四级标题五级标题六级标题 无序列表 无序列表 无序列表 代码片段12a=10print(a)]]></content>
+    <content type="text"><![CDATA[Markdown是一种轻量级的标记语言，使用普通的文本编辑器，通过简单的标记语法，就可以实现漂亮的排版，被越来越多的写作爱好者、程序员所使用。Markdown自成格式，不依赖任何编辑器，且易于传播，其语法十分简单，通过几分钟的简单学习，就可以实现基本的排版，然后专注于码字。 标题123456# 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题 只有六级标题哦 列表无序列表123- 列表一- 列表二- 列表三 有序列表1231. 列表一2. 列表二3. 列表三 强调 **这样加粗** 粗体文字 *这样变斜*斜体文字 分割线使用---或***可以添加分割线 引用内容前加&gt;,如: 引用内容 代码片段行内代码将代码放在`符号对之间可以实现行内代码,如:print(HelloWord) 块状代码```(程序语言) 代码内容 ``` 程序语言例如Python,可以实现代码高亮,如:123def sayHello(): return print("HelloWord")sayHello() 表格1234一|二|三--:|:--:|:--111|222|3331|2|3 一 二 三 111 222 333 1 2 3]]></content>
+      <categories>
+        <category>-markdown</category>
+      </categories>
       <tags>
         <tag>markdown</tag>
+        <tag>基础</tag>
       </tags>
   </entry>
 </search>
