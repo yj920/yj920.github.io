@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[jQuery介绍与使用]]></title>
+    <url>%2F2019%2F02%2F01%2FjQuery%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[简单介绍jQuery： jQuery 是一个 JavaScript 库。 jQuery 极大地简化了 JavaScript 编程。 jQuery 很容易学习。 安装jQuery：进入jQuery官网，下载jQuery库，然后在html页面中引用。例如：123&lt;head&gt;&lt;script src="jquery-3.3.1.js"&gt;&lt;/script&gt;&lt;/head&gt; 另外，jquery.js文件无压缩，用于测试和学习；jquery.min.js文件已压缩，用于实际的网站。 使用CDN引用：如果不想下载jQuery文件，可以使用这些CDN， 谷歌CDN：123&lt;head&gt;&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;&lt;/head&gt; 微软CDN：123&lt;head&gt;&lt;script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"&gt;&lt;/script&gt;&lt;/head&gt; 百度CDN：123&lt;head&gt;&lt;script src="https://apps.bdimg.com/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;&lt;/head&gt; 官方CDN：123&lt;head&gt;&lt;script src="https://code.jquery.com/jquery-3.3.1.js"&gt;&lt;/script&gt;&lt;/head&gt; 等等…… 用户访问其他网站时可能已经加载过jQuery，在访问您的页面是会从缓存中加载jQuery，提高加载速度。]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Markdown基本语法]]></title>
     <url>%2F2019%2F01%2F30%2Fmarkdown%2F</url>
     <content type="text"><![CDATA[Markdown是一种轻量级的标记语言，使用普通的文本编辑器，通过简单的标记语法，就可以实现漂亮的排版，被越来越多的写作爱好者、程序员所使用。Markdown自成格式，不依赖任何编辑器，且易于传播，其语法十分简单，通过几分钟的简单学习，就可以实现基本的排版，然后专注于码字。 标题123456# 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题 只有六级标题哦 列表无序列表123- 列表一- 列表二- 列表三 有序列表1231. 列表一2. 列表二3. 列表三 强调 **这样加粗** 粗体文字 *这样变斜*斜体文字 分割线使用---或***可以添加分割线 引用内容前加&gt;,如: 引用内容 代码片段行内代码将代码放在`符号对之间可以实现行内代码,如:print(HelloWord) 块状代码```(程序语言) 代码内容 ``` 程序语言例如Python,可以实现代码高亮,如:123def sayHello(): return print("HelloWord")sayHello() 表格1234一|二|三--:|:--:|:--111|222|3331|2|3 一 二 三 111 222 333 1 2 3]]></content>
@@ -8,8 +20,8 @@
         <category>-markdown</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
         <tag>基础</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
 </search>
