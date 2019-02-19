@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Sass的介绍与使用 | Ying Jun&#39;s blog
+  </title>
+  <meta name="description" content="">
+  
+  <meta name="keywords" content="
+  基础,Sass
+  ">
+  
+  <meta name="author" content="by YingJun">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="./images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 5 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 4 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">Ying Jun&#39;s blog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    by YingJun
+
+    <span class="post-date float-right" title="{{moment(1550402309000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1550402309000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Sass的介绍与使用</h1>
+    <h2 id="Sass介绍"><a href="#Sass介绍" class="headerlink" title="Sass介绍"></a>Sass介绍</h2><ul>
+<li><a href="http://sass-lang.com/" target="_blank" rel="noopener">Sass官网</a></li>
+</ul>
+<blockquote>
+<p>Sass 是一门高于 CSS 的元语言，它能用来清晰地、结构化地描述文件样式，有着比普通 CSS 更加强大的功能。<br>Sass 能够提供更简洁、更优雅的语法，同时提供多种功能来创建可维护和管理的样式表。</p>
+</blockquote>
+<p>Sass是功能最为强大、最成熟、并且是最为流行的CSS预处理器。那么，什么是预处理器呢？CSS是一种描述性语言，通过预处理器，可以让CSS像JavaScript一样以“编程”的方式来写CSS。比如，可以在CSS中定义变量、函数、程序…使得编写的CSS代码更简洁，更易于维护。</p>
+<h3 id="其他的CSS预处理器语言比如"><a href="#其他的CSS预处理器语言比如" class="headerlink" title="其他的CSS预处理器语言比如"></a>其他的CSS预处理器语言比如</h3><ul>
+<li><a href="http://lesscss.org/" target="_blank" rel="noopener">Less</a></li>
+<li><a href="http://stylus-lang.com/" target="_blank" rel="noopener">Stylus</a></li>
+</ul>
+<h2 id="使用Sass"><a href="#使用Sass" class="headerlink" title="使用Sass"></a>使用Sass</h2><h3 id="安装Ruby"><a href="#安装Ruby" class="headerlink" title="安装Ruby"></a>安装Ruby</h3><p>Sass是用Ruby编写的，所以需要先安装<a href="https://rubyinstaller.org/downloads/" target="_blank" rel="noopener">Ruby</a>对应的版本。<br><strong>安装时需要勾选Add Ruby executables to your PATH这项</strong>，否则编译时找不到Ruby环境。</p>
+<h3 id="安装Sass"><a href="#安装Sass" class="headerlink" title="安装Sass"></a>安装Sass</h3><h4 id="通过命令行安装"><a href="#通过命令行安装" class="headerlink" title="通过命令行安装"></a>通过命令行安装</h4><p>打开Ruby命令行，使用以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install sass</span><br></pre></td></tr></table></figure></p>
+<h4 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h4><p>先下载<a href="http://rubygems.org/gems/sass" target="_blank" rel="noopener">Sass安装包</a>，然后在命令行输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install &lt;安装包的路径&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后回车即可。</p>
+<h4 id="淘宝镜像安装"><a href="#淘宝镜像安装" class="headerlink" title="淘宝镜像安装"></a>淘宝镜像安装</h4><p>移除默认源：<code>gem sources --remove https://rubygems.org/</code><br>添加淘宝源：<code>gem sources -a https://ruby.taobao.org/</code><br>查看是否是淘宝源：<code>gem sources -l</code><br>若返回结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*** CURRENT SOURCES ***</span><br><span class="line">https://ruby.taobao.org</span><br></pre></td></tr></table></figure></p>
+<p>再输入<code>gem install sass</code>进行安装。</p>
+<h3 id="Sass更新"><a href="#Sass更新" class="headerlink" title="Sass更新"></a>Sass更新</h3><h4 id="查看Sass版本"><a href="#查看Sass版本" class="headerlink" title="查看Sass版本"></a>查看Sass版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass -v</span><br></pre></td></tr></table></figure>
+<h4 id="更新Sass"><a href="#更新Sass" class="headerlink" title="更新Sass"></a>更新Sass</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem update sass</span><br></pre></td></tr></table></figure>
+<p>如果显示<code>Nothing to update</code>则表示已是最新版本</p>
+<h4 id="卸载Sass"><a href="#卸载Sass" class="headerlink" title="卸载Sass"></a>卸载Sass</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem uninstall sass</span><br></pre></td></tr></table></figure>
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="http://yj920.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2018 by YingJun</li>
+      <li><a href="http://yj920.github.io">Home</a></li>
+      
+      <li><a href="https://github.com/yj920">Github</a></li>
+      
+    </ul>
+    
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
