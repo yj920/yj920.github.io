@@ -1,9 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Sass控制语句]]></title>
+    <url>%2F2019%2F02%2F23%2FSass%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5%2F</url>
+    <content type="text"><![CDATA[@if@if语句有这么几种 @if{语句} @if{语句}@else{语句} @if{语句}@else if{语句} 1234567891011121314151617181920@mixin checkColor($width)&#123; @if ($width&gt;500px)&#123; color:red; &#125; @else if($width&gt;100px)&#123; color:blue; &#125; @else&#123; color:green; &#125;&#125;.dic0&#123; @include checkColor(50px);&#125;.div1&#123; @include checkColor(200px);&#125;.div2&#123; @include checkColor(5000px);&#125; 编译后的CSS：1234567891011.dic0 &#123; color: green;&#125;.div1 &#123; color: blue;&#125;.div2 &#123; color: red;&#125; @for@for也有这么几种： @for $i from &lt;start&gt; through &lt;end&gt; @for $i from &lt;start&gt; to &lt;end&gt; 1234567891011121314@for $i from 1 through 3&#123; .item-#&#123;$i&#125; &#123; width:(10px * $i); &#125;&#125;@for $i from 1 to 3&#123; .border-#&#123;$i&#125; &#123; border:#&#123;$i&#125;px solid red; &#125;&#125; 编译后的CSS：12345678910111213141516171819.item-1 &#123; width: 10px;&#125;.item-2 &#123; width: 20px;&#125;.item-3 &#123; width: 30px;&#125;.border-1 &#123; border: 1px solid red;&#125;.border-2 &#123; border: 2px solid red;&#125; 由此可见”through”包括了”end”，但”to”不包括”end” @while12345678$i:3;@while ($i&gt;0)&#123; .item-#&#123;$i&#125; &#123; width: (10px*$i); &#125; $i : ($i - 1);&#125; 编译后的CSS：1234567891011.item-3 &#123; width: 30px;&#125;.item-2 &#123; width: 20px;&#125;.item-1 &#123; width: 10px;&#125; @each@each也是一种循环，遍历一个列表。用法：@each $var in &lt;list&gt;1234567$list:logo,banner,btn;@each $var in $list&#123; .#&#123;$var&#125;-img &#123; background-image:url("images/#&#123;$var&#125;.png"); &#125;&#125; 编译后的CSS：1234567891011.logo-img &#123; background-image: url("images/logo.png");&#125;.banner-img &#123; background-image: url("images/banner.png");&#125;.btn-img &#123; background-image: url("images/btn.png");&#125;]]></content>
+      <categories>
+        <category>Sass</category>
+      </categories>
+      <tags>
+        <tag>Sass</tag>
+        <tag>语法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Sass代码复用]]></title>
+    <url>%2F2019%2F02%2F23%2FSass%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[继承在Sass中使用@extend来实现样式的继承 1234567.div&#123; border:1px solid red;&#125;.div0&#123; color:blue; @extend .div;&#125; 编译后的CSS：1234567.div, .div0 &#123; border: 1px solid red;&#125;.div0 &#123; color: blue;&#125; 占位符在上面的例子中，如果编译后不要”.div”怎么办？使用占位符%placeholder，编译后的代码里便不包含基类。1234567891011%div&#123; border:1px solid red;&#125;.div0&#123; color:blue; @extend %div;&#125;.div1&#123; color:green; @extend %div;&#125; 编译后的CSS：1234567891011.div1, .div0 &#123; border: 1px solid red;&#125;.div0 &#123; color: blue;&#125;.div1 &#123; color: green;&#125; 如果无需保留基类，可以使用%placeholder。 混合宏Sass中混合宏类似于程序中的函数。用@mixin定义，用 @include调用123456@mixin div&#123; border:1px solid red;&#125;.div&#123; @include div;&#125; 编译后的CSS：123.div&#123; border:1px solid red;&#125; 还可以定义带默认参数及多个参数的混合宏 带默认参数123456789101112@mixin div($color:blue)&#123; background-color:$color;&#125;.div0&#123; @include div;&#125;.div1&#123; @include div(red);&#125;.div2&#123; @include div(green);&#125; 编译后的CSS：1234567891011.div0 &#123; background-color: blue;&#125;.div1 &#123; background-color: red;&#125;.div2 &#123; background-color: green;&#125; 带多个参数1234567891011@mixin div($color,$width,$height)&#123; background-color:$color; width:$width; height:$height;&#125;.div0&#123; @include div(red,100px,100px);&#125;.div1&#123; @include div(yellow,200px,150px);&#125; 编译后的CSS：1234567891011.div0 &#123; background-color: red; width: 100px; height: 100px;&#125;.div1 &#123; background-color: yellow; width: 200px; height: 150px;&#125; 总结 方法 声明方法 调用方法 继承 .class @extend 占位符 %placeholder @extend 混合宏 @mixin @include 使用继承和混合宏都可以提高开发效率，但使用混合宏会使代码冗余，而使用继承不会。]]></content>
+      <categories>
+        <category>Sass</category>
+      </categories>
+      <tags>
+        <tag>Sass</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Sass基本运算]]></title>
+    <url>%2F2019%2F02%2F22%2FSass%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%2F</url>
+    <content type="text"><![CDATA[CSS目前只有cls()函数可以进行运算，Sass可以像程序一样进行计算，但是与程序相比还是有些不同 加减法1234div&#123; width:(100px+50px); height:(100px-50px);&#125; 编译后的CSS：1234div &#123; width: 150px; height: 50px;&#125; 在加减法运算中需要单位相同，否则会报错，例如123div&#123; width:(100px+50em);&#125; 错误信息Incompatible units: &#39;em&#39; and &#39;px&#39;. 乘法相比于加减法，乘法运算中只能有一个值带单位，例如：123div&#123; width:(100px*2);&#125; 编译后的CSS：123div&#123; width:200px;&#125; 如果上面的2也带有单位，如2px，则会报错200px*px isn&#39;t a valid CSS value. 除法/符号在CSS中已经作为一种符号了，所以在Sass中，不能直接使用/来做除法12345678$m:100px;.div&#123; width:100px/2;/*不是除法*/ height:(100px/2px);/*使用小括号*/ margin-top:100px/2+100;/*使用加号*/ margin-right:round(1.5)/2;/*使用函数*/ margin-bottom:$m/2;/*使用变量*/&#125; 编译后的CSS：123456789101112.div &#123; width: 100px/2; /*不是除法*/ height: 50; /*使用小括号*/ margin-top: 150px; /*使用加号*/ margin-right: 1; /*使用函数*/ margin-bottom: 50px; /*使用变量*/&#125; 如果除法运算两边都带有单位，那么编译后就没有单位 字符运算在Sass中用+符合连接字符。如果左边的字符有引号，编译后的字符也有引号；如果左边的字符没引号，编译后的字符也没引号12345div::before&#123; content: "Hello" + World; font:sans- + "serif";&#125; 编译后的CSS：1234div::before &#123; content: "HelloWorld"; font: sans-serif;&#125; 颜色运算颜色的计算是按红黄蓝分段计算的1234div&#123; color:#010203 + #040506; background-color:#123123*2;&#125; 编译后的CSS：1234div&#123; color:#050709; background-color:#246246;&#125; 计算#010203+#040506的方法为01+04,02+05,03+06,结果为#050709]]></content>
+      <categories>
+        <category>Sass</category>
+      </categories>
+      <tags>
+        <tag>Sass</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Sass基础语法]]></title>
+    <url>%2F2019%2F02%2F21%2FSass%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[变量声明变量像这样声明变量$color:red;，以$符号开头，例如：1234$color:red;div&#123; color:$color;&#125; 编译后的CSS：123div &#123; color: red;&#125; 默认变量将一个变量甚至为默认变量主要在变量值的后面加一个!default即可。若需要更改默认值，重新赋值就行。默认变量在组件化开发中非常有效。12345678$color:red !default;.div0&#123; $color:blue; color:$color;&#125;.div1&#123; color:$color;&#125; 编译后的CSS：123456.div0 &#123; color: blue;&#125;.div1 &#123; color: red;&#125; 变量的作用域像程序一样，sass也有作用域。1234567891011$color:red; //定义全局变量body&#123; div&#123; color:$color; //调用全局变量 &#125; $color:blue; //定义局部变量 p&#123; color:$color; //调用局部变量 &#125; &#125; 编译后的CSS：123456body div &#123; color: red;&#125;body p &#123; color: blue;&#125; 数据类型数字字符串字符串又分为有引号的字符串和无引号的字符串1234567891011121314$url:"img/demo.png";$text:"Hello";$width:100px;$height:200px;div&#123; background-image:url($url); width:$width; height:$height;&#125;div:hover&#123; content:$text;&#125; 编译后的CSS：12345678div &#123; background-image: url("img/demo.png"); width: 100px; height: 200px;&#125;div:hover &#123; content: "Hello";&#125; 布尔值布尔值有两种：true和false12345678910111213$a:0;$b:0;div&#123; @if($a!=$b) &#123; display:block; &#125; @else &#123; display:none; &#125;&#125; 编译后的CSS：123div &#123; display: none;&#125; 颜色值 关键字颜色值 十六进制颜色值 RGB颜色值 HSL颜色值 1234567$color:#FFFFFF;$bgColor:red;div&#123; color:$color; background-color:$bgColor;&#125; 编译后的CSS：1234div &#123; color: #FFFFFF; background-color: red;&#125; 值列表值列表可以包含多个值，也可以包含“子列表”12345$border:1px solid red;div&#123; border:$border;&#125; 编译后的CSS：12345div&#123; border:1px solid red;&#125; Sass还对此提供了很多内置函数 nullMap值123456$name:( key0:value0; key1:value; ......); Map值与JSON值非常类似，Sass也对Map值提供了许多内置函数。 其他注释 //注释内容，类似CSS的注释 /*注释内容*/，类似JavaScript的注释 12345//注释内容/*注释内容*/p&#123; color:red;&#125; 1234/*注释内容*/p&#123; color:red;&#125; 插值用法：#{变量},例如：12345$border:border;$color:red;div&#123; #&#123;$border&#125;:1px solid #&#123;$color&#125;;&#125; 编译后的CSS：123div&#123; border:1px solid red;&#125;]]></content>
+      <categories>
+        <category>Sass</category>
+      </categories>
+      <tags>
+        <tag>Sass</tag>
+        <tag>语法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Sass的介绍与使用]]></title>
     <url>%2F2019%2F02%2F17%2FSass%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[Sass介绍 Sass官网 Sass 是一门高于 CSS 的元语言，它能用来清晰地、结构化地描述文件样式，有着比普通 CSS 更加强大的功能。Sass 能够提供更简洁、更优雅的语法，同时提供多种功能来创建可维护和管理的样式表。 Sass是功能最为强大、最成熟、并且是最为流行的CSS预处理器。那么，什么是预处理器呢？CSS是一种描述性语言，通过预处理器，可以让CSS像JavaScript一样以“编程”的方式来写CSS。比如，可以在CSS中定义变量、函数、程序…使得编写的CSS代码更简洁，更易于维护。 其他的CSS预处理器语言比如 Less Stylus 使用Sass安装RubySass是用Ruby编写的，所以需要先安装Ruby对应的版本。安装时需要勾选Add Ruby executables to your PATH这项，否则编译时找不到Ruby环境。 安装Sass通过命令行安装打开Ruby命令行，使用以下命令：1gem install sass 本地安装先下载Sass安装包，然后在命令行输入：1gem install &lt;安装包的路径&gt; 然后回车即可。 淘宝镜像安装移除默认源：gem sources --remove https://rubygems.org/添加淘宝源：gem sources -a https://ruby.taobao.org/查看是否是淘宝源：gem sources -l若返回结果为：12*** CURRENT SOURCES ***https://ruby.taobao.org 再输入gem install sass进行安装。 Sass更新查看Sass版本1sass -v 更新Sass1gem update sass 如果显示Nothing to update则表示已是最新版本 卸载Sass1gem uninstall sass]]></content>
+    <content type="text"><![CDATA[Sass介绍 Sass官网 Sass 是一门高于 CSS 的元语言，它能用来清晰地、结构化地描述文件样式，有着比普通 CSS 更加强大的功能。Sass 能够提供更简洁、更优雅的语法，同时提供多种功能来创建可维护和管理的样式表。 Sass是功能最为强大、最成熟、并且是最为流行的CSS预处理器。那么，什么是预处理器呢？CSS是一种描述性语言，通过预处理器，可以让CSS像JavaScript一样以“编程”的方式来写CSS。比如，可以在CSS中定义变量、函数、程序…使得编写的CSS代码更简洁，更易于维护。 其他的CSS预处理器语言比如 Less Stylus 使用Sass安装RubySass是用Ruby编写的，所以需要先安装Ruby对应的版本。安装时需要勾选Add Ruby executables to your PATH这项，否则编译时找不到Ruby环境。 安装Sass通过命令行安装打开Ruby命令行，使用以下命令：1gem install sass 本地安装先下载Sass安装包，然后在命令行输入：1gem install &lt;安装包的路径&gt; 然后回车即可。 淘宝镜像安装移除默认源：gem sources --remove https://rubygems.org/添加淘宝源：gem sources -a https://ruby.taobao.org/查看是否是淘宝源：gem sources -l若返回结果为：12*** CURRENT SOURCES ***https://ruby.taobao.org 再输入gem install sass进行安装。 Sass更新查看Sass版本1sass -v 更新Sass1gem update sass 如果显示Nothing to update则表示已是最新版本 卸载Sass1gem uninstall sass 在线编辑 推荐一个网站https://www.sassmeister.com/]]></content>
       <categories>
         <category>Sass</category>
       </categories>

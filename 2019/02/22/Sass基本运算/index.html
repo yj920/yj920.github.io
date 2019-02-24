@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Sass基本运算 | Ying Jun&#39;s blog
+  </title>
+  <meta name="description" content="">
+  
+  <meta name="keywords" content="
+  Sass
+  ">
+  
+  <meta name="author" content="YingJun">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 8 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 6 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 4 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">Ying Jun&#39;s blog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    YingJun
+
+    <span class="post-date float-right" title="{{moment(1550818453000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1550818453000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Sass基本运算</h1>
+    <p>CSS目前只有cls()函数可以进行运算，Sass可以像程序一样进行计算，但是与程序相比还是有些不同</p>
+<h2 id="加减法"><a href="#加减法" class="headerlink" title="加减法"></a>加减法</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:(<span class="number">100px</span>+<span class="number">50px</span>);</span><br><span class="line">  <span class="attribute">height</span>:(<span class="number">100px</span>-<span class="number">50px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译后的CSS：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在加减法运算中需要<strong>单位相同</strong>，否则会报错，例如<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:(<span class="number">100px</span>+<span class="number">50em</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>错误信息<code>Incompatible units: &#39;em&#39; and &#39;px&#39;.</code></p>
+<h2 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h2><p>相比于加减法，乘法运算中只能有一个值带单位，例如：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:(<span class="number">100px</span>*<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译后的CSS：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果上面的<code>2</code>也带有单位，如<code>2px</code>，则会报错<code>200px*px isn&#39;t a valid CSS value.</code></p>
+<h2 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h2><p><code>/</code>符号在CSS中已经作为一种符号了，所以在Sass中，不能直接使用<code>/</code>来做除法<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$m</span>:<span class="number">100px</span>;</span><br><span class="line"><span class="selector-class">.div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">100px</span>/<span class="number">2</span>;<span class="comment">/*不是除法*/</span></span><br><span class="line">  <span class="attribute">height</span>:(<span class="number">100px</span>/<span class="number">2px</span>);<span class="comment">/*使用小括号*/</span></span><br><span class="line">  <span class="attribute">margin-top</span>:<span class="number">100px</span>/<span class="number">2</span>+<span class="number">100</span>;<span class="comment">/*使用加号*/</span></span><br><span class="line">  <span class="attribute">margin-right</span>:round(<span class="number">1.5</span>)/<span class="number">2</span>;<span class="comment">/*使用函数*/</span></span><br><span class="line">  <span class="attribute">margin-bottom</span>:<span class="variable">$m</span>/<span class="number">2</span>;<span class="comment">/*使用变量*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译后的CSS：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>/<span class="number">2</span>;</span><br><span class="line">  <span class="comment">/*不是除法*/</span></span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50</span>;</span><br><span class="line">  <span class="comment">/*使用小括号*/</span></span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="comment">/*使用加号*/</span></span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="comment">/*使用函数*/</span></span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="comment">/*使用变量*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果除法运算两边都带有单位，那么编译后就没有单位</p>
+<h2 id="字符运算"><a href="#字符运算" class="headerlink" title="字符运算"></a>字符运算</h2><p>在Sass中用<code>+</code>符合连接字符。<strong>如果左边的字符有引号，编译后的字符也有引号；如果左边的字符没引号，编译后的字符也没引号</strong><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>::before</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"Hello"</span> + World;</span><br><span class="line">    <span class="attribute">font</span>:sans- + <span class="string">"serif"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译后的CSS：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">"HelloWorld"</span>;</span><br><span class="line">  <span class="attribute">font</span>: sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="颜色运算"><a href="#颜色运算" class="headerlink" title="颜色运算"></a>颜色运算</h2><p>颜色的计算是按红黄蓝分段计算的<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#010203</span> + <span class="number">#040506</span>;</span><br><span class="line">  <span class="attribute">background-color</span>:<span class="number">#123123</span>*<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译后的CSS：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#050709</span>;</span><br><span class="line">  <span class="attribute">background-color</span>:<span class="number">#246246</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>计算<code>#010203+#040506</code>的方法为01+04,02+05,03+06,结果为<code>#050709</code></p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://yj920.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2018 YingJun</li>
+      <li><a href="https://yj920.github.io">Home</a></li>
+      
+      <li><a href="https://github.com/yj920">Github</a></li>
+      
+    </ul>
+    
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
